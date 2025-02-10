@@ -39,5 +39,12 @@ int main()
     std::array<int, 5> arr = {1, 2, 3, 4, 5};
     std::for_each(arr.begin(), arr.end(), print);
 
+    // Range-Based Loop:
+    std::cout << "\nRange-Based loop\n";
+    for (int n : arr)
+    {
+        std::cout << n << " ";
+    }
+
     return 0;
 }
