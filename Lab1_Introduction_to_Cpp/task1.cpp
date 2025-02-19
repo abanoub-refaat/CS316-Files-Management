@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     string tarek;
-    cout << "Enter a string ya kebeer";
+    cout << "Enter a string ya kebeer: ";
     getline(cin, tarek);
 
     int count = 0;
