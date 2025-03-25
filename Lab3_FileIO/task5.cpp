@@ -9,7 +9,7 @@ int main()
     bool flag = 1;
 
     ofstream myfile;
-    myfile.open("example.txt");
+    myfile.open("list.txt");
 
     if (myfile.is_open())
     {
@@ -39,5 +39,5 @@ int main()
     else
         cout << "Unable to open flie";
 
-        return 0;
+    return 0;
 }
