@@ -4,19 +4,22 @@
 
 using namespace std;
 
-bool contains(ifstream &file, string str);
-// replace the string function homework.
+bool contains(fstream &file, string str);
+void replace(fstream &file, string str, string replace);
 
 int main()
 {
-    ifstream file;
-    file.open("content.txt");
+    fstream file;
+    file.open("content.txt", ios::out | ios::in | ios::binary);
     cout << contains(file, "student");
     file.close();
+
+    file.open("content.txt", ios::out | ios::in | ios::binary);
+    replace(file, "student", "teacher");
     return 0;
 }
 
-bool contains(ifstream &file, string str)
+bool contains(fstream &file, string str)
 {
     if (file.is_open())
     {
@@ -24,7 +27,6 @@ bool contains(ifstream &file, string str)
         {
             string line;
             getline(file, line);
-            cout << line << endl;
             if (line.find(str) != string::npos)
             {
                 return true;
@@ -37,4 +39,21 @@ bool contains(ifstream &file, string str)
         exit(1);
     }
     return false;
+}
+
+void replace(fstream &file, string str, string replace)
+{
+    if (file.is_open())
+    {
+        while (!file.eof())
+        {
+            string line;
+            getline(file, line);
+            if (line.find(str) != string::npos)
+            {
+                // string::replace(start , end, string).
+                line.replace(line.find(str), str.length(), replace);
+            }
+        }
+    }
 }
